@@ -66,7 +66,7 @@ This project utilizes a modern **MVC Architecture** to ensure scalability for ov
 
 ## 🚀 Installation & Setup
 
-Follow these instructions to run the website locally.
+Follow these instructions to run the SaaS locally.
 
 ### Prerequisites
 *   Node.js installed.
