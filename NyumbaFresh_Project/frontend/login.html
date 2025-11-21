@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secure Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="height: 100vh; display: flex; align-items: center; justify-content: center; background: #f4f7f6;">
+
+    <div class="card" style="padding: 40px; width: 100%; max-width: 400px;">
+        <h2 style="text-align: center; color: var(--primary); margin-bottom: 20px;">NyumbaFresh Login</h2>
+        <form id="login-form">
+            <div style="margin-bottom: 15px;">
+                <label>Username</label>
+                <input type="text" id="username" placeholder="e.g. tenant" required style="width:100%; padding:12px; margin-top:5px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label>Password</label>
+                <input type="password" id="password" placeholder="e.g. 123" required style="width:100%; padding:12px; margin-top:5px;">
+            </div>
+            <button type="submit" class="btn-book">Secure Sign In</button>
+        </form>
+        <p style="text-align: center; margin-top: 20px;">
+            <a href="index.html" style="color: #666; text-decoration: none;">← Back to Home</a>
+        </p>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

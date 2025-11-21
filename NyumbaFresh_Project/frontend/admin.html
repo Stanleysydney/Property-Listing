@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard | NyumbaFresh</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="background: #f4f4f4;">
+
+    <nav style="background: #222; color: white;">
+        <div class="logo"><h2>NyumbaFresh Admin</h2></div>
+        <a href="index.html" style="color:white;">Back to Website</a>
+    </nav>
+
+    <div class="container">
+        <h1>Recent Bookings</h1>
+        <p>Real-time data from MongoDB</p>
+        <br>
+        <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; background: white; border-collapse: collapse;">
+            <thead>
+                <tr style="background: #2E7D32; color: white;">
+                    <th>Property</th>
+                    <th>Client Name</th>
+                    <th>Phone</th>
+                    <th>M-Pesa Code</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody id="bookings-table">
+                <!-- Data goes here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Simple Admin Script to fetch bookings
+        async function loadBookings() {
+            try {
+                const res = await fetch('http://localhost:5000/api/admin/bookings');
+                const bookings = await res.json();
+                const tbody = document.getElementById('bookings-table');
+                
+                tbody.innerHTML = bookings.map(b => `
+                    <tr>
+                        <td>${b.propertyName}</td>
+                        <td>${b.clientName}</td>
+                        <td>${b.clientPhone}</td>
+                        <td>${b.mpesaCode}</td>
+                        <td>${new Date(b.dateBooked).toLocaleString()}</td>
+                    </tr>
+                `).join('');
+            } catch (err) {
+                alert("Error loading bookings");
+            }
+        }
+        loadBookings();
+    </script>
+</body>
+</html>
